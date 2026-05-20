@@ -1,0 +1,10 @@
+Produce my weekly review.
+
+Read memory/MEMORY.md for context. Review this week's daily notes in vault/Daily/,
+this week's meeting notes in vault/Meetings/, and any decisions logged in
+vault/Decisions/. Scan vault/ for tasks that have been open more than five days.
+
+Output a concise review: what moved this week, what stalled, what is overdue or
+at risk, and the two or three things that most deserve attention next week. Be
+honest about what did not get done. Do not send anything anywhere; this output is
+saved to a file for me to read.

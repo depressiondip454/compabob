@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# Compabob — persona preset helper. Sourced by setup.sh; not run directly.
+#
+# apply_persona <persona-id> <free-text "what you work on">
+#   - seeds memory/topics/role-and-priorities.md from config/personas/<id>.md,
+#     but only if that file is still the untouched template (never clobbers edits)
+#   - records the chosen preset in config/user.config.yaml
+#
+# Must be called with the current directory at the kit root (setup.sh ensures it).
+
+apply_persona() {
+  local pid="$1" what="${2:-}"
+  local persona_file="config/personas/$pid.md"
+
+  if [ ! -f "$persona_file" ]; then
+    printf '  \033[1;33mwarn\033[0m persona "%s" not found — skipping persona setup\n' "$pid"
+    return 0
+  fi
+
+  PERSONA_ID="$pid" PERSONA_WHAT="$what" python3 - "$persona_file" <<'PYEOF'
+import os, pathlib, sys
+
+persona_file = pathlib.Path(sys.argv[1])
+pid = os.environ["PERSONA_ID"]
+what = os.environ["PERSONA_WHAT"].strip() or "[in a sentence or two, what you work on]"
+
+text = persona_file.read_text(encoding="utf-8")
+
+# strip YAML frontmatter, keep the body
+body = text
+if text.startswith("---"):
+    parts = text.split("---", 2)
+    if len(parts) == 3:
+        body = parts[2].lstrip("\n")
+body = body.replace("<WHAT_YOU_WORK_ON>", what)
+
+# seed role-and-priorities.md only if it still looks like the untouched template
+rp = pathlib.Path("memory/topics/role-and-priorities.md")
+markers = ("[fill in]", "[the most important thing]", "{{USER_NAME}}")
+seeded = False
+if rp.exists():
+    current = rp.read_text(encoding="utf-8")
+    if any(m in current for m in markers):
+        rp.write_text(body, encoding="utf-8")
+        print(f"  \033[0;32mok\033[0m   seeded role-and-priorities.md from the {pid} persona")
+        seeded = True
+    else:
+        print("  \033[0;32mok\033[0m   role-and-priorities.md already edited — kept your version")
+else:
+    print("  \033[1;33mwarn\033[0m memory/topics/role-and-priorities.md not found — skipped")
+
+# record the chosen preset in the config, but only when the file was actually
+# seeded — so config.preset never disagrees with what is in role-and-priorities.md
+if seeded:
+    cfg = pathlib.Path("config/user.config.yaml")
+    if cfg.exists():
+        lines = cfg.read_text(encoding="utf-8").splitlines()
+        out, done = [], False
+        for ln in lines:
+            if not done and ln.lstrip().startswith("preset:"):
+                indent = ln[: len(ln) - len(ln.lstrip())]
+                out.append(f'{indent}preset: "{pid}"')
+                done = True
+            else:
+                out.append(ln)
+        if done:
+            cfg.write_text("\n".join(out) + "\n", encoding="utf-8")
+            print(f'  \033[0;32mok\033[0m   recorded persona "{pid}" in config/user.config.yaml')
+PYEOF
+}

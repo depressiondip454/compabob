@@ -1,0 +1,35 @@
+# Secrets and credentials — never commit these
+.secrets/
+.env
+*.env
+!*.env.example
+!*.env.template
+
+# YOUR STUFF — created from the *.example seeds by setup.sh.
+# These live outside git on purpose: a kit update can never touch them.
+/vault/
+/memory/
+/config/user.config.yaml
+/.claude/settings.local.json
+/.mcp.json
+
+# Runtime data, logs, caches, generated output
+data/
+logs/
+*.log
+.cache/
+.tmp/
+reports/
+modules/*/generated/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.ruff_cache/
+
+# OS noise
+.DS_Store
+Thumbs.db

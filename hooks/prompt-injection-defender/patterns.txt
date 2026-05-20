@@ -1,0 +1,23 @@
+# Prompt-injection patterns. One pattern per line, treated as a case-insensitive
+# regular expression. Lines starting with # and blank lines are ignored.
+# post-tool-defender.py scans the output of Read / WebFetch / Bash / WebSearch
+# for these. A match means external content is trying to issue instructions.
+#
+# Edit freely: add patterns you see in the wild, remove ones that false-positive.
+
+ignore (all |the )?(previous|prior|above) (instructions|prompts|messages)
+disregard (all |the )?(previous|prior|above)
+forget (everything|all previous|your instructions)
+you are now (a|an|in)\b
+new instructions\s*[:>-]
+system prompt\s*[:>]
+</?(system|assistant|instructions)>
+\[/?(system|inst|instructions)\]
+override (your|the) (instructions|guardrails|rules|safety)
+do not tell (the user|anyone)
+reveal (your|the) (system prompt|instructions|prompt)
+print (your|the) (system prompt|instructions)
+execute the following (command|code|instruction)
+send (an email|a message|the data) to
+exfiltrate
+base64 -d\s*\|\s*(bash|sh)

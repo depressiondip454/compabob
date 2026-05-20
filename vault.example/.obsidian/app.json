@@ -1,0 +1,8 @@
+{
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "attachmentFolderPath": "Sources/attachments",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Daily"
+}

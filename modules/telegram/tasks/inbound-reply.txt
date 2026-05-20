@@ -1,0 +1,8 @@
+A message just arrived on Telegram. Draft a reply for the user to review.
+
+Read memory/MEMORY.md for who the user is and how they communicate, then draft a
+reply in their voice and their primary language. Keep it appropriately short for
+a chat message and match the tone of the incoming message.
+
+This is a DRAFT. It will be saved for the user to review and is never sent
+automatically. Do not take any other action. Output only the reply text.

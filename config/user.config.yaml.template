@@ -1,0 +1,29 @@
+# Your configuration. setup.sh copies this to config/user.config.yaml and fills
+# the placeholders. That file is git-ignored: it is yours. Edit it freely.
+
+user:
+  name: "{{USER_NAME}}"
+  role: "{{USER_ROLE}}"
+  primary_language: "{{PRIMARY_LANGUAGE}}"
+
+assistant:
+  name: "{{ASSISTANT_NAME}}"
+
+# The persona preset picked at setup. It only seeds role-and-priorities.md and
+# records your choice here; every agent stays available. See config/personas/.
+persona:
+  preset: ""             # generalist | consultant | engineer | sales | founder
+
+# Opt-in modules. To enable one, set it to true and follow modules/<name>/README.md.
+# Setting a flag here does not install anything on its own; each module has its
+# own enable step.
+modules:
+  proactive: false       # scheduled automation (morning brief, weekly review)
+  telegram: false        # Telegram bot — inbound messages drafted for your approval
+  integrations: false    # MCP integrations (web, Google Workspace, search, utility)
+  memory_search: false   # semantic search over memory and the vault
+  extra_agents: false    # the extra-agents gallery
+  team: false            # multi-user team mode
+
+preferences:
+  timezone: ""           # e.g. "Europe/Berlin"; leave blank to use the system zone

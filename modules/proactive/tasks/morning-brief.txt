@@ -1,0 +1,10 @@
+Produce my morning brief for today.
+
+Read memory/MEMORY.md for context. Read today's and yesterday's daily notes in
+vault/Daily/ if they exist. Scan vault/ for open and overdue tasks. Read
+memory/topics/brief-queue.md for anything captured for today.
+
+Output one concise, scannable brief: the single most important thing about today
+first, then priorities, then anything due or overdue, then follow-ups owed and
+owing. Omit empty sections. Do not send anything anywhere; this output is saved
+to a file for me to read.
