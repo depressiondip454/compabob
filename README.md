@@ -1,8 +1,16 @@
 # Compabob
 
-A customizable [Claude Code](https://docs.anthropic.com/en/docs/claude-code) setup for knowledge workers. Clone it, run `./setup.sh`, name your assistant, and you have a working AI work partner in about ten minutes: a constitution that defines how it behaves, a fleet of specialized agents, safety guards, slash-command workflows, and an Obsidian knowledge base.
+**A customizable [Claude Code](https://docs.anthropic.com/en/docs/claude-code) setup for knowledge workers.** Clone it, run `./setup.sh`, name your assistant, and in about ten minutes you have a working AI work partner: it knows your role, remembers what you tell it, routes work to specialized agents, and never sends anything without your sign-off.
 
-This is **scaffolding, not a finished assistant.** The value compounds as you personalize it. What you get on day one is a well-structured starting point that already does more than a blank Claude Code session, and a clear path to make it yours.
+## Why
+
+A fresh Claude Code session is a strong generalist with no memory of you. Every time, you re-explain who you are, how you want answers, and what you are working on. It has no sense of your priorities, no guardrails on what gets sent, and no place to keep what it learns.
+
+Compabob is the missing structure. The core loop, on day one:
+
+> You ask it to take notes from today's planning meeting. It files them into your knowledge base. Next week, before the follow-up, you type `/meeting-prep` and it hands back the attendees, what was decided, and the open items, without you searching for anything.
+
+That second-brain loop is the value you get immediately. Compabob is scaffolding, not a finished assistant: everything else compounds as you make it yours.
 
 ## What this is (and is not)
 
