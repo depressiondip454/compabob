@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "_comment": "Per-machine settings. setup.sh copies this to settings.local.json (git-ignored). Add your own permission rules and any MCP servers here. This file is yours; the committed settings.json holds the shared defaults.",
-  "permissions": {
-    "allow": [],
-    "deny": []
-  }
-}
